@@ -31,8 +31,6 @@ const PostsList = () => {
       )
     }, [])  
 
-    console.log(callAPI)
-
   return (
     <div className='container-fluid'>
         { callAPI ? callAPI.map(post =><div key={post._id}>

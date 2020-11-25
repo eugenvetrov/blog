@@ -22,13 +22,16 @@ var Links = () => {
                 <Link to="/posts/create" className="nav-link">
                     Create Post
                 </Link>
+                <Link to="/posts/update" className="nav-link">
+                    Update Post
+                </Link>
                     </nav>
                 </div>
                 <div>
                 <Switch>
                 <Route path="/posts/create" exact component={PostsInsert} />
                 <Route path="/post/list" exact component={PostsList} />
-                <Route path="/posts/update/:id"
+                <Route path="/posts/update"
                     exact
                     component={PostsUpdate} />
             </Switch>
