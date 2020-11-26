@@ -1,6 +1,8 @@
 import React, {  useState } from 'react'
 
-const PostsUpdate = () => {
+const PostsUpdate = ({match}) => {
+
+    const id = match.params.id
     
     const [put, setPost] = useState(
         {
@@ -8,17 +10,6 @@ const PostsUpdate = () => {
           content: ''
         }
     )
-
-    const handleId = async (event) => {
-        const value = event.target.value
-        setPost(prevNote => {
-          return {
-            ...prevNote,
-              id: value
-              }
-            }
-        )
-    }
   
    const handleChangeUpdateTitle = async (event) => {
       const value = event.target.value
@@ -41,8 +32,6 @@ const PostsUpdate = () => {
         }
         )
      }
-
-    const id = JSON.stringify(put.id)
   
     const putData = async ( url = '', data = {} ) => {
       
@@ -69,15 +58,11 @@ const PostsUpdate = () => {
     }
   
     const handleUpdatePost = async () => {
-      putData('http://localhost:9000/api/post/'+id.replace(/"/g, ""), put)
+      putData('http://localhost:9000/api/post/'+id, put)
     }
 
         return (
             <div className='container-fluid'>
-                <input className="form-control"
-                    type ="text"
-                    onChange={handleId}>
-                    </input>
                 <input className="form-control"
                     type ="text"
                     onChange={handleChangeUpdateTitle}>
@@ -88,7 +73,7 @@ const PostsUpdate = () => {
                     </input>
 
                 <button className="btn btn-primary" onClick={handleUpdatePost}>Update Post</button>
-                <button className="btn btn-primary" href={'/posts/list'}>Cancel</button>
+                <a className="btn btn-danger" href={'/posts/list'}>Cancel</a>
             </div>
         )
 }

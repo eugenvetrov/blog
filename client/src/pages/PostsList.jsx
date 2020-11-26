@@ -1,6 +1,11 @@
 
 import React, {  useState, useEffect } from 'react'
 
+const  updatePost = (id,event) => {
+      event.preventDefault()
+      window.location.href = `/posts/update/${id}`
+  }
+
 const PostsList = () => {
   let [callAPI, setCallAPI] = useState()
 
@@ -36,6 +41,9 @@ const PostsList = () => {
         { callAPI ? callAPI.map(post =><div key={post._id}>
            <p>{post.title}</p>
         <p>{post.content}</p>
+        <p>{post._id}</p>
+        <p> <button className="btn btn-primary" onClick={(e) => updatePost(post._id, e)}>Update</button></p>
+        <a className="btn btn-danger" href={'/posts/list'}>Cancel</a>
            </div>): 'Chto-to ne tak'}
     </div>
   )
