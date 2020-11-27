@@ -76,7 +76,7 @@ updatePost = async (req, res) => {
 }
 
 deletePost = async (req, res) => {
-    await Movie.findOneAndDelete({ _id: req.params.id }, (err, post) => {
+    await Post.findOneAndDelete({ _id: req.params.id }, (err, post) => {
         if (err) {
             return res.status(400).json({ success: false, error: err })
         }
