@@ -1,3 +1,9 @@
+/*
+Routing for posts requests
+____________
+
+Маршрутиризация для запросов по постам
+*/
 
 const express = require('express')
 

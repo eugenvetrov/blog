@@ -1,21 +1,20 @@
-import React from 'react'
+import React from "react";
 import {
     BrowserRouter as Router,
     Switch,
     Route,
     Link
   } from "react-router-dom";
+import Home from "./Home";
+import { PostsList, PostsInsert, PostsUpdate } from ".";
+import Login from "../auth/Login";
+import Register from "../auth/Register";
 
-  import { PostsList, PostsInsert, PostsUpdate } from '../pages'
-
-var Links = () => {
+var Posts = () => {
         return (
             <Router>
                 <div className='navbar  navbar-expand-lg navbar-dark bg-dark'>
                     <nav>
-                <Link to="/" className="navbar-brand">
-                    My first MERN Application
-                </Link>
                 <Link to="/post/list" className="nav-link">
                     List Posts
                 </Link>
@@ -39,4 +38,4 @@ var Links = () => {
 
     }
 
-export default Links
+export default Posts;
